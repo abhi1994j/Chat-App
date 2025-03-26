@@ -307,7 +307,7 @@
                                 id="send-button"
                                 class="bg-primary-500 text-white px-3 py-2 md:px-4 md:py-2 rounded-md hover:bg-primary-600 transition-colors flex items-center gap-1"
                             >
-                                <span class="hidden sm:inline">Send</span>
+                                <span class="hidden  sm:inline">Send</span>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4">
                                     <path d="m22 2-7 20-4-9-9-4Z"></path>
                                     <path d="M22 2 11 13"></path>
@@ -328,6 +328,8 @@
             const settingsToggle = document.getElementById('settings-toggle');
             const settingsPanel = document.getElementById('settings-panel');
             const themeToggle = document.getElementById('theme-toggle');
+            const dot = document.querySelector('.dot')
+            console.log(dot);
             const themeButtons = document.querySelectorAll('.theme-btn');
             const appBody = document.getElementById('app-body');
             const messageInput = document.getElementById('message-input');
@@ -366,13 +368,17 @@
             });
             
             // Dark/Light mode toggle
-            themeToggle.addEventListener('change', function() {
+            themeToggle.addEventListener('change', function() {            
                 if (this.checked) {
                     appBody.classList.remove('light');
                     appBody.classList.add('dark');
+                    dot.classList.add('translate-x-4')
+                    
+
                 } else {
                     appBody.classList.remove('dark');
                     appBody.classList.add('light');
+                    dot.classList.remove('translate-x-4')
                 }
                 savePreferences();
             });
